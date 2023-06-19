@@ -13,7 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -26,7 +25,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -36,9 +34,18 @@ h1 {
   line-height: 1.1;
 }
 
+input {
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #d9dbe3;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: inherit;
+}
+
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #d9dbe3;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -66,4 +73,85 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.spinner {
+  animation: rotator 1.4s linear infinite;
+}
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+
+.pagination {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.pagination > li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.pagination > li > a {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.pagination > li.active > a {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination > li > a:hover {
+  background-color: #ddd;
+  border-color: #ddd;
 }
